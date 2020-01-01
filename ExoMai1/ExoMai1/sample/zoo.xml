@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAnimalXmlEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AnimalXmlEntry>
+    <Id>ba1a0964-1cc8-462f-a02e-9fca9bbaafb6</Id>
+    <Name>Médor</Name>
+    <Color>Brown</Color>
+    <NumberOfLegs>4</NumberOfLegs>
+  </AnimalXmlEntry>
+  <AnimalXmlEntry>
+    <Id>332be670-4838-495b-ae17-1e6a0b9da811</Id>
+    <Name>Spidey</Name>
+    <Color>Black</Color>
+    <NumberOfLegs>8</NumberOfLegs>
+  </AnimalXmlEntry>
+</ArrayOfAnimalXmlEntry>
