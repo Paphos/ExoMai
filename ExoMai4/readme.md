@@ -9,21 +9,21 @@ Another one that I like is the "_dictionary of list_". I use this one very frequ
 As you can tell by the name, it's a dictionary that can hold multiple values for each key. Handy!
 
 ## Goal
-- Create the `DictionaryOfList` class that implements the `IDictionaryOfList` interface.
-- That means 3 properties and 7 methods to implements.
-- Add it in the method `CreateDictionaryOfList()` method of the class `DictionaryOfListTest` so you can run the unit tests!
+- Create a new `DictionaryOfList` class that implements the existing `IDictionaryOfList` interface.
+- That means 3 properties and 7 methods to implement.
+- Add it in the `CreateDictionaryOfList()` method of the class `DictionaryOfListTest` so you can run the unit tests!
 - All tests in `DictionaryOfListTest` must pass! =)
 
 ## Hints
 - Now you gonna dive into the marvelous realm of "generic types", which can be a little tricky...
-- You can look at my other class `TwoKeyDictionary` to understand how to implement a generic collection. Especially for the syntax! You don't need the `TwoKeyDictionary` in your actual code but the implementation of the `DictionaryOfList` should be a bit similar. And you can check the `TwoKeyDictionaryTest` class to see how it works from the outside.
+- You can look at my other class `TwoKeyDictionary` to understand how to implement a generic collection. Especially for the syntax! You don't need the `TwoKeyDictionary` in your actual code but it should help you to come up with an implementation for the `DictionaryOfList` because the two classes are a bit similar. And you can check the `TwoKeyDictionaryTest` class to see how it works from the outside.
 - The assignment is mostly about syntax. If my example is not enough to understand, feel free to check other examples of generic collections on the web!
 - A `DictionaryOfList<TKey,TItem>` is pretty much a wrapper for a `Dictionary<TKey,List<TItem>>` ...
 
 ## Difficulty
 - Algorithmic: ++
 - Object-oriented: +
-- Syntax: ++++
+- Syntaxic: ++++
 
 ## Concepts
 - C# syntax
