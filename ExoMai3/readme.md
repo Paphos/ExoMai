@@ -18,10 +18,10 @@ Each adventurer has a score in Strength, Wisdom and Happiness. The food they eat
     - **Apple-raspberry pie**🥧 : A pie made of one apple and one raspberry so it combines the bonuses of both items and also has another bonus +10 Happiness. _(hint: you can use composition)_
     - **Candy**🍬 : +5 Strength **only if** the adventurer's current strength is below 10.
     - **Croissant**🥐 : same effect than the candy. The trick here: the code of this effect must be in one place, so the candy and the croissant must somehow use the same code _(hint: you can separate the food item from its effects and reuse them => it's also composition, but at a more precise level than before)_
-    - And finally, for the two last food items, you cannot create a new class for each of them but instead use the same class, and both items will be instances of this class _(ask me if this part is not clear)_
+    - And finally, for the two last food items, you cannot create a new class for each of them but you will create one "generic" food class and use it for both. So the items will be instances of the same class _(ask me if this part is not clear)_
         - **Chocolate cake**🍫🎂 : same effect than the candy and +50 Happiness.
         - **Lemon pie**🍋🥧: +26 Strength (and +2 Wisdom thanks to the fruit bonus)
-- Every time you create an item, uncomment the related test in the UnitTasting project, and it should pass =)
+- Every time you create an item, modify the related method GetXX() in the UnitTasting project, and the test should pass =)
 
 ## In the end...
 - What are the benefits and drawbacks of inheritance? composition?

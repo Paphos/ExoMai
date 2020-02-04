@@ -16,7 +16,8 @@ namespace UnitTasting
         IEnchantedFood GetAppleRaspberryPie() => throw new NotImplementedException("You forgot to create an apple-raspberry pie here!");
         IEnchantedFood GetCandy() => throw new NotImplementedException("You forgot to create a candy here!");
         IEnchantedFood GetCroissant() => throw new NotImplementedException("You forgot to create a croissant here!");
-        IEnchantedFood GetChocolate() => throw new NotImplementedException("You forgot to create chocolate here!");
+        IEnchantedFood GetChocolateCake() => throw new NotImplementedException("You forgot to create the chocolate cake here!");
+        IEnchantedFood GetLemonPie() => throw new NotImplementedException("You forgot to create the lemon pie here!");
 
 
         [TestMethod]
@@ -113,18 +114,27 @@ namespace UnitTasting
         public void TasteChocolate_HasEffect()
         {
             Adventurer adventurer = new Adventurer("Julie", 41, 20, 21);
-            IEnchantedFood chocolate = GetChocolate();
-            adventurer.Eat(chocolate);
-            AssertAdventurer(adventurer, 41, 20, 41);
+            IEnchantedFood chocolateCake = GetChocolateCake();
+            adventurer.Eat(chocolateCake);
+            AssertAdventurer(adventurer, 41, 20, 71);
         }
 
         [TestMethod]
         public void TasteChocolate_NoEffect()
         {
             Adventurer adventurer = new Adventurer("Julie", 5, 20, 40);
-            IEnchantedFood chocolate = GetChocolate();
-            adventurer.Eat(chocolate);
-            AssertAdventurer(adventurer, 10, 20, 60);
+            IEnchantedFood chocolateCake = GetChocolateCake();
+            adventurer.Eat(chocolateCake);
+            AssertAdventurer(adventurer, 10, 20, 90);
+        }
+
+        [TestMethod]
+        public void TasteLemonPie_HasEffect()
+        {
+            Adventurer adventurer = new Adventurer("Charlotte", 41, 37, 54);
+            IEnchantedFood lemonPie = GetLemonPie();
+            adventurer.Eat(lemonPie);
+            AssertAdventurer(adventurer, 67, 39, 54);
         }
 
 
