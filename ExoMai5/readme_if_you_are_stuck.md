@@ -4,9 +4,16 @@ Here is the list of all the LINQ methods that I used to resolve each problem. Ma
 /!\ Move your mouse above the blank space to show the hint.
 
 ### GetTotalPopulation
->! Sum
+<details>
+  <summary>Click to show!</summary>
+> Sum
+</details>
 
 ### GetCitiesStartingWithSaint
->! Where (+ StartsWith)
+<details>
+  <summary>Click to show!</summary>
+> Where (+ StartsWith)
+</details>
+
 
 
