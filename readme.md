@@ -10,5 +10,5 @@ Abstract, Composite pattern, Composition, Food, Inheritance, Instances
 ## ExoMai4 - Custom dictionaries 📖
 Collections, Dictionary, Dictionary of list, Generic types, Syntax, Tools, Two-key dictionary
 
-## ExoMai5 - Linq VS French cities 🏘️🏘️🏘️
-Cities, Collections, Linq
+## ExoMai5 - LINQ VS French cities 🏘️🏘️🏘️
+Cities, Collections, LINQ
