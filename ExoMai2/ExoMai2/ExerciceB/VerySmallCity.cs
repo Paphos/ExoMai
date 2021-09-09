@@ -17,13 +17,13 @@ namespace ExoMai2
 
         public void Enter(Traveler traveler)
         {
-            // A compléter
+            // To be completed.
             throw new NotImplementedException();
         }
 
         public void Leave(Traveler traveler)
         {
-            // A compléter
+            // To be completed.
             throw new NotImplementedException();
         }
     }

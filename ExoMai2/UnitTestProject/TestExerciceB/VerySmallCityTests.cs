@@ -1,16 +1,11 @@
 ﻿using ExoMai2;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Xunit;
 
 namespace UnitTestProject
 {
-    [TestClass]
-    public class VerySmallCityTest
+    public class VerySmallCityTests
     {
-        [TestMethod]
+        [Fact]
         public void HappyPath()
         {
             // Arrange
@@ -23,11 +18,11 @@ namespace UnitTestProject
             city.Enter(travelerCharlotte);
 
             // Assert
-            Assert.IsTrue(travelerSimon.VisitedCities.Contains("Berlin"));
-            Assert.IsTrue(travelerCharlotte.VisitedCities.Contains("Berlin"));
+            Assert.Contains("Berlin", travelerSimon.VisitedCities);
+            Assert.Contains("Berlin", travelerCharlotte.VisitedCities);
         }
 
-        [TestMethod]
+        [Fact]
         public void TravelersEnterThenLeaveOneByOne()
         {
             // Arrange
@@ -42,11 +37,11 @@ namespace UnitTestProject
             city.Leave(travelerCharlotte);
 
             // Assert
-            Assert.IsTrue(travelerSimon.VisitedCities.Contains("Berlin"));
-            Assert.IsTrue(travelerCharlotte.VisitedCities.Contains("Berlin"));
+            Assert.Contains("Berlin", travelerSimon.VisitedCities);
+            Assert.Contains("Berlin", travelerCharlotte.VisitedCities);
         }
 
-        [TestMethod]
+        [Fact]
         public void TooManyTravelersTryEnteringTheCity()
         {
             // Arrange
@@ -63,13 +58,13 @@ namespace UnitTestProject
             city.Enter(travelerStephanie);
 
             // Assert
-            Assert.IsTrue(travelerSimon.VisitedCities.Contains("Berlin"));
-            Assert.IsTrue(travelerCharlotte.VisitedCities.Contains("Berlin"));
-            Assert.IsFalse(travelerRoger.VisitedCities.Contains("Berlin"));
-            Assert.IsFalse(travelerStephanie.VisitedCities.Contains("Berlin"));
+            Assert.Contains("Berlin", travelerSimon.VisitedCities);
+            Assert.Contains("Berlin", travelerCharlotte.VisitedCities);
+            Assert.DoesNotContain("Berlin", travelerRoger.VisitedCities);
+            Assert.DoesNotContain("Berlin", travelerStephanie.VisitedCities);
         }
 
-        [TestMethod]
+        [Fact]
         public void TravelerLeavesAfterVisitingAllowingWaitingTravelerToEnter()
         {
             // Arrange
@@ -88,13 +83,13 @@ namespace UnitTestProject
             city.Leave(travelerCharlotte);
 
             // Assert
-            Assert.IsTrue(travelerSimon.VisitedCities.Contains("Berlin"));
-            Assert.IsTrue(travelerCharlotte.VisitedCities.Contains("Berlin"));
-            Assert.IsTrue(travelerRoger.VisitedCities.Contains("Berlin"));
-            Assert.IsFalse(travelerStephanie.VisitedCities.Contains("Berlin"));
+            Assert.Contains("Berlin", travelerSimon.VisitedCities);
+            Assert.Contains("Berlin", travelerCharlotte.VisitedCities);
+            Assert.Contains("Berlin", travelerRoger.VisitedCities);
+            Assert.DoesNotContain("Berlin", travelerStephanie.VisitedCities);
         }
 
-        [TestMethod]
+        [Fact]
         public void TravelerLeavesBeforeVisiting_1()
         {
             // Arrange
@@ -113,13 +108,13 @@ namespace UnitTestProject
             city.Leave(travelerRoger);
 
             // Assert
-            Assert.IsTrue(travelerSimon.VisitedCities.Contains("Berlin"));
-            Assert.IsTrue(travelerCharlotte.VisitedCities.Contains("Berlin"));
-            Assert.IsFalse(travelerRoger.VisitedCities.Contains("Berlin"));
-            Assert.IsFalse(travelerStephanie.VisitedCities.Contains("Berlin"));
+            Assert.Contains("Berlin", travelerSimon.VisitedCities);
+            Assert.Contains("Berlin", travelerCharlotte.VisitedCities);
+            Assert.DoesNotContain("Berlin", travelerRoger.VisitedCities);
+            Assert.DoesNotContain("Berlin", travelerStephanie.VisitedCities);
         }
 
-        [TestMethod]
+        [Fact]
         public void TravelerLeavesBeforeVisiting_2()
         {
             // Arrange
@@ -139,10 +134,10 @@ namespace UnitTestProject
             city.Leave(travelerCharlotte);
 
             // Assert
-            Assert.IsTrue(travelerSimon.VisitedCities.Contains("Berlin"));
-            Assert.IsTrue(travelerCharlotte.VisitedCities.Contains("Berlin"));
-            Assert.IsFalse(travelerRoger.VisitedCities.Contains("Berlin"));
-            Assert.IsTrue(travelerStephanie.VisitedCities.Contains("Berlin"));
+            Assert.Contains("Berlin", travelerSimon.VisitedCities);
+            Assert.Contains("Berlin", travelerCharlotte.VisitedCities);
+            Assert.DoesNotContain("Berlin", travelerRoger.VisitedCities);
+            Assert.Contains("Berlin", travelerStephanie.VisitedCities);
         }
     }
 }

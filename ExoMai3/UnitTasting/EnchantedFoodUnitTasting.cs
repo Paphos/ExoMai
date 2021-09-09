@@ -1,11 +1,10 @@
 using ExoMai3;
 using ExoMai3.Food;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Xunit;
 
 namespace UnitTasting
 {
-    [TestClass]
     public class EnchantedFoodUnitTasting
     {
         IEnchantedFood GetPeanut() => new Peanut();
@@ -20,7 +19,7 @@ namespace UnitTasting
         IEnchantedFood GetLemonPie() => throw new NotImplementedException("You forgot to create the lemon pie here!");
 
 
-        [TestMethod]
+        [Fact]
         public void TastePeanut()
         {
             Adventurer adventurer = new Adventurer("Victor", 5, 27, 21);
@@ -29,7 +28,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 5, 27, 22);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteCookie()
         {
             Adventurer adventurer = new Adventurer("Roger", 20, 8, 14);
@@ -38,7 +37,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 20, 7, 18);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteSuperCookie()
         {
             Adventurer adventurer = new Adventurer("Charlotte", 12, 15, 20);
@@ -47,7 +46,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 62, 14, 24);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteApple()
         {
             Adventurer adventurer = new Adventurer("Sophie", 17, 32, 11);
@@ -56,7 +55,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 22, 34, 11);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteRaspberry()
         {
             Adventurer adventurer = new Adventurer("Simon", 10, 10, 8);
@@ -65,7 +64,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 10, 12, 12);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteAppleRaspberryPie()
         {
             Adventurer adventurer = new Adventurer("Louise", 20, 41, 37);
@@ -74,7 +73,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 25, 45, 51);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteCandy_HasEffect()
         {
             Adventurer adventurer = new Adventurer("Sébastien", 11, 20, 40);
@@ -83,7 +82,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 11, 20, 40);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteCandy_NoEffect()
         {
             Adventurer adventurer = new Adventurer("Sébastien", 9, 20, 40);
@@ -92,7 +91,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 14, 20, 40);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteCroissant_HasEffect()
         {
             Adventurer adventurer = new Adventurer("Sébastien", 11, 20, 40);
@@ -101,7 +100,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 11, 20, 40);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteCroissant_NoEffect()
         {
             Adventurer adventurer = new Adventurer("Sébastien", 9, 20, 40);
@@ -110,7 +109,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 14, 20, 40);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteChocolate_HasEffect()
         {
             Adventurer adventurer = new Adventurer("Julie", 41, 20, 21);
@@ -119,7 +118,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 41, 20, 71);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteChocolate_NoEffect()
         {
             Adventurer adventurer = new Adventurer("Julie", 5, 20, 40);
@@ -128,7 +127,7 @@ namespace UnitTasting
             AssertAdventurer(adventurer, 10, 20, 90);
         }
 
-        [TestMethod]
+        [Fact]
         public void TasteLemonPie_HasEffect()
         {
             Adventurer adventurer = new Adventurer("Charlotte", 41, 37, 54);
@@ -142,9 +141,9 @@ namespace UnitTasting
 
         private void AssertAdventurer(Adventurer adv, int strength, int wisdom, int happiness)
         {
-            Assert.AreEqual(strength, adv.Strength, $"Expected strength : <{strength}>. Actual strength : <{adv.Strength}>.");
-            Assert.AreEqual(wisdom, adv.Wisdom, $"Expected wisdom : <{wisdom}>. Actual wisdom : <{adv.Wisdom}>.");
-            Assert.AreEqual(happiness, adv.Happiness, $"Expected happiness : <{happiness}>. Actual happiness : <{adv.Happiness}>.");
+            Assert.Equal(strength, adv.Strength);
+            Assert.Equal(wisdom, adv.Wisdom);
+            Assert.Equal(happiness, adv.Happiness);
         }
 
         #endregion

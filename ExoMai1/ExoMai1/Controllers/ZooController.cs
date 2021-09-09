@@ -6,7 +6,8 @@ using System.Collections.Generic;
 namespace ExoMai1.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("zoo")]
+    //[Route("[controller]")]
     public class ZooController : ControllerBase
     {
         private IZooService _zooService;
@@ -16,15 +17,13 @@ namespace ExoMai1.Controllers
             _zooService = zooService;
         }
 
-        [HttpPost]
-        [Route("add")]
+        [HttpPost("add")]
         public void Add([FromBody]AnimalModel animal)
         {
             _zooService.Add(animal);
         }
 
-        [HttpGet]
-        [Route("getall")]
+        [HttpGet("getall")]
         public IEnumerable<AnimalModel> GetAll()
         {
             return _zooService.GetAll();

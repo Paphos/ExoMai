@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ExoMai2
 {
@@ -9,7 +8,7 @@ namespace ExoMai2
         public static Dictionary<string, int> GetNumberOfCountryVisitedByTravellers(
             IEnumerable<Traveler> travelers)
         {
-            // A compléter
+            // To be completed.
             throw new NotImplementedException();
         }
     }

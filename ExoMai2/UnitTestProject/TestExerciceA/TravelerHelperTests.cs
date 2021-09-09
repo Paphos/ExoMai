@@ -1,13 +1,12 @@
 using ExoMai2;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using Xunit;
 
 namespace UnitTestProject
 {
-    [TestClass]
-    public class TravelerHelperTest
+    public class TravelerHelperTests
     {
-        [TestMethod]
+        [Fact]
         public void GetNumberOfCountryVisitedByTravellers_HappyPath()
         {
             // Arrange
@@ -22,14 +21,14 @@ namespace UnitTestProject
             Dictionary<string, int> result = TravelerHelper.GetNumberOfCountryVisitedByTravellers(travelers);
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(travelers.Count, result.Count);
-            Assert.AreEqual(1, result["Sébastien"]);
-            Assert.AreEqual(3, result["Clémence"]);
-            Assert.AreEqual(2, result["Antoine"]);
+            Assert.NotNull(result);
+            Assert.Equal(travelers.Count, result.Count);
+            Assert.Equal(1, result["Sébastien"]);
+            Assert.Equal(3, result["Clémence"]);
+            Assert.Equal(2, result["Antoine"]);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNumberOfCountryVisitedByTravellers_TravellerCanVisitZeroCountry()
         {
             // Arrange
@@ -43,13 +42,13 @@ namespace UnitTestProject
             Dictionary<string, int> result = TravelerHelper.GetNumberOfCountryVisitedByTravellers(travelers);
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(travelers.Count, result.Count);
-            Assert.AreEqual(0, result["Thomas"]);
-            Assert.AreEqual(2, result["Stéphanie"]);
+            Assert.NotNull(result);
+            Assert.Equal(travelers.Count, result.Count);
+            Assert.Equal(0, result["Thomas"]);
+            Assert.Equal(2, result["Stéphanie"]);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNumberOfCountryVisitedByTravellers_TravellerCanVisitMultipleCitiesOfSameCountry()
         {
             // Arrange
@@ -63,13 +62,13 @@ namespace UnitTestProject
             Dictionary<string, int> result = TravelerHelper.GetNumberOfCountryVisitedByTravellers(travelers);
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(travelers.Count, result.Count);
-            Assert.AreEqual(3, result["Charlotte"]);
-            Assert.AreEqual(2, result["James"]);
+            Assert.NotNull(result);
+            Assert.Equal(travelers.Count, result.Count);
+            Assert.Equal(3, result["Charlotte"]);
+            Assert.Equal(2, result["James"]);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNumberOfCountryVisitedByTravellers_TravellerCanVisitMultipleTimesTheSameCity()
         {
             // Arrange
@@ -83,10 +82,10 @@ namespace UnitTestProject
             Dictionary<string, int> result = TravelerHelper.GetNumberOfCountryVisitedByTravellers(travelers);
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(travelers.Count, result.Count);
-            Assert.AreEqual(1, result["Anaïs"]);
-            Assert.AreEqual(2, result["Simon"]);
+            Assert.NotNull(result);
+            Assert.Equal(travelers.Count, result.Count);
+            Assert.Equal(1, result["Anaïs"]);
+            Assert.Equal(2, result["Simon"]);
         }
     }
 }

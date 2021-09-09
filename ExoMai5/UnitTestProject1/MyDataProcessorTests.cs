@@ -1,17 +1,15 @@
 using ExoMai5;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
+using Xunit;
 
 namespace UnitTestProject1
 {
-    [TestClass]
-    public class MyDataProcessorTest
+    public class MyDataProcessorTests
     {
         private MyDataProcessor _myDataProcessor;
 
-        [TestInitialize]
-        public void Initialize()
+        public MyDataProcessorTests()
         {
             var deserializer = new CityCsvDeserializer("villes_france.csv");
             var cities = deserializer.ReadCities();
@@ -24,25 +22,25 @@ namespace UnitTestProject1
         // *******************        (one Linq method)          ***********************
         // *****************************************************************************
 
-        [TestMethod]
+        [Fact]
         public void GetTotalPopulation()
         {
             int totalPopulation = _myDataProcessor.GetTotalPopulation();
-            Assert.AreEqual(60337171, totalPopulation);
+            Assert.Equal(60337171, totalPopulation);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetCitiesStartingWithSaint()
         {
             IEnumerable<City> citiesStartWithSaint = _myDataProcessor.GetCitiesStartingWithSaint();
-            Assert.AreEqual(4260, citiesStartWithSaint.Count());
-            Assert.IsTrue(citiesStartWithSaint.Any(city => city.Name == "Saint-Étienne"));
+            Assert.Equal(4260, citiesStartWithSaint.Count());
+            Assert.Contains(citiesStartWithSaint, city => city.Name == "Saint-Étienne");
         }
 
-        [TestMethod]
+        [Fact]
         public void IsThereACityThatHasExactly10000Inhabitants()
         {
-            Assert.IsFalse(_myDataProcessor.IsThereACityThatHasExactly10000Inhabitants());
+            Assert.False(_myDataProcessor.IsThereACityThatHasExactly10000Inhabitants());
         }
 
 
@@ -52,34 +50,34 @@ namespace UnitTestProject1
         // *******************        (two Linq methods)         ***********************
         // *****************************************************************************
 
-        [TestMethod]
+        [Fact]
         public void GetTheCityWithTheLongestName()
         {
             City cityWithTheLongestName = _myDataProcessor.GetTheCityWithTheLongestName();
-            Assert.AreEqual("Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson", cityWithTheLongestName.Name);
+            Assert.Equal("Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson", cityWithTheLongestName.Name);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetThe10MostPopulatedFrenchCities()
         {
             IEnumerable<City> mostPopulatedCities = _myDataProcessor.GetThe10MostPopulatedFrenchCities();
-            Assert.AreEqual(10, mostPopulatedCities.Count());
-            Assert.IsTrue(mostPopulatedCities.Any(city => city.Name == "Paris"));
+            Assert.Equal(10, mostPopulatedCities.Count());
+            Assert.Contains(mostPopulatedCities, city => city.Name == "Paris");
         }
 
-        [TestMethod]
+        [Fact]
         public void GetAllDepartments()
         {
             IEnumerable<string> allDepartments = _myDataProcessor.GetAllDepartments();
-            Assert.AreEqual(102, allDepartments.Count());
-            Assert.IsTrue(allDepartments.Contains("2A"));
+            Assert.Equal(102, allDepartments.Count());
+            Assert.Contains("2A", allDepartments);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetNumberOfCityInCorsica()
         {
             int numberOfCityInCorsica = _myDataProcessor.GetNumberOfCityInCorsica();
-            Assert.AreEqual(360, numberOfCityInCorsica);
+            Assert.Equal(360, numberOfCityInCorsica);
         }
 
 
@@ -90,36 +88,36 @@ namespace UnitTestProject1
         // *****************************************************************************
 
 
-        [TestMethod]
+        [Fact]
         public void GetAllDuplicateCityNames()
         {
             IEnumerable<string> duplicateCityNames = _myDataProcessor.GetAllDuplicateCityNames();
-            Assert.AreEqual(1685, duplicateCityNames.Count());
-            Assert.IsTrue(duplicateCityNames.Contains("Moulins"));
+            Assert.Equal(1685, duplicateCityNames.Count());
+            Assert.Contains("Moulins", duplicateCityNames);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetTheNumberOfFrenchPeopleThatDontLiveInThe10MostPopulatedCities()
         {
             int numberOfPeopleThatDontLiveInThe10BiggestCities
                 = _myDataProcessor.GetTheNumberOfFrenchPeopleThatDontLiveInThe10MostPopulatedCities();
-            Assert.AreEqual(55053768, numberOfPeopleThatDontLiveInThe10BiggestCities);
+            Assert.Equal(55053768, numberOfPeopleThatDontLiveInThe10BiggestCities);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetThe3BiggestAndThe3SmallestCities()
         {
             IEnumerable<City> theBiggestAndSmallestCities = _myDataProcessor.GetThe3BiggestAndThe3SmallestCities();
-            Assert.AreEqual(6, theBiggestAndSmallestCities.Count());
-            Assert.IsTrue(theBiggestAndSmallestCities.Any(city => city.Name == "Paris"));
-            Assert.IsTrue(theBiggestAndSmallestCities.Any(city => city.Name == "Rochefourchat"));
+            Assert.Equal(6, theBiggestAndSmallestCities.Count());
+            Assert.Contains(theBiggestAndSmallestCities, city => city.Name == "Paris");
+            Assert.Contains(theBiggestAndSmallestCities, city => city.Name == "Rochefourchat");
         }
 
-        [TestMethod]
+        [Fact]
         public void GetTheMostPopulatedDepartment()
         {
             string mostPopulatedDepartment = _myDataProcessor.GetTheMostPopulatedDepartment();
-            Assert.AreEqual("59", mostPopulatedDepartment);
+            Assert.Equal("59", mostPopulatedDepartment);
         }
     }
 }
